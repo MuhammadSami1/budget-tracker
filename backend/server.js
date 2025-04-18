@@ -11,8 +11,8 @@ app.use(
   cors({
     origin: [
 
-      'http://localhost:3000',
-      'https://budget-tracker-dqx5.vercel.app',
+      process.env.FRONTEND_URL || 'http://localhost:3000',
+      'https://budget-tracker-dqx5.vercel.app'
     ],
     methods: ['GET', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type']
