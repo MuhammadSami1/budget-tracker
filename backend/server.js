@@ -12,7 +12,7 @@ app.use(
     origin: [
 
       'http://localhost:3000',
-      'https://budget-tracker-chi-henna.vercel.app',
+      'https://budget-tracker-dqx5.vercel.app',
     ],
     methods: ['GET', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type']
