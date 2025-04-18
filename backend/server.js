@@ -7,20 +7,22 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-app.use(
-  cors({
-    origin: [
+app.use(cors({
+  origin: [
+    process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000',
+    'https://budget-tracker-dqx5.vercel.app'
+  ],
+  methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 
-      process.env.FRONTEND_URL || 'http://localhost:3000',
-      'https://budget-tracker-dqx5.vercel.app'
-    ],
-    methods: ['GET', 'POST', 'DELETE'],
-    allowedHeaders: ['Content-Type']
-  })
-);
+// Body parsing middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // app.use(bodyParser.json());
-app.use(express.json());
+
 app.use("/api/transactions", transactionRoutes);
 
 app.listen(PORT, () => {
