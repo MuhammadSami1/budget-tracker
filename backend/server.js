@@ -9,8 +9,8 @@ const app = express();
 
 app.use(cors({
   origin: [
-    process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000',
-    'https://budget-tracker-dqx5.vercel.app'
+    'https://budget-tracker-dqx5.vercel.app' || 'http://localhost:3000',
+
   ],
   methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
