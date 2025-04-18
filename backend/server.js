@@ -19,8 +19,8 @@ app.use(
   })
 );
 
-app.use(bodyParser.json());
-
+// app.use(bodyParser.json());
+app.use(express.json());
 app.use("/api/transactions", transactionRoutes);
 
 app.listen(PORT, () => {
