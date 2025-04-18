@@ -9,7 +9,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: [
+
+      'http://localhost:3000',
+      'https://budget-tracker-chi-henna.vercel.app',
+    ],
     methods: ['GET', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type']
   })
@@ -22,3 +26,5 @@ app.use("/api/transactions", transactionRoutes);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+export default app;
